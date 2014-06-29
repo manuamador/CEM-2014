@@ -1,6 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 """
-Created on Fri Oct 18 08:19:30 2013
+
 
 
 """
@@ -43,7 +43,7 @@ def traitement(filename):
     P=Eth**2+Eph**2
     D=reshape(a[:,0],(360,181))
     return P,D,Eth,Eph
-    
+
 
 P800,D800,Eth800,Eph800=traitement('F800MHZ.txt')
 P2000,D2000,Eth2000,Eph2000=traitement('F2GHZ.txt')

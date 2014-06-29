@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug 07 11:42:12 2013
 
-@author: e68972
 """
 
 from __future__ import division
@@ -34,4 +32,3 @@ xlabel(r'$n$')
 ylabel(r'$ka$')
 
 fig.savefig('../fig/TestADb.pdf',bbox='tight')
-

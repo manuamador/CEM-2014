@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Oct 29 13:23:16 2012
+
 Classe de contrôle des sondes de champ
-@author: emmanuel.amador@edf.fr
+
 """
 
 from visa import *
@@ -39,16 +39,16 @@ class DARE_CTR1002A():
         """ fais le Zero de la mesure éteindre toutes les sources avant !"""
         self.ctrl.write("P1:ZERO")
         time.sleep(5)
-        s=self.ctrl.read()        
+        s=self.ctrl.read()
         if (s==':Z'):
             print('Zero OK')
-        
+
     def getChamp(self):
         """ Mesure des troix axes"""
         s=(self.ctrl.ask("P1:D3"))
         ch=(((s[2:len(s)-2]).split(';')))
         return array([eval(ch[0]),eval(ch[1]),eval(ch[2])])
-        
+
 
 class DARE_CTR1001S():
     """ Classe de type pyVISA pour la mesure de champ avec l'interface DARE
@@ -84,10 +84,10 @@ class DARE_CTR1001S():
         """ fais le Zero de la mesure éteindre toutes les sources avant !"""
         self.ctrl.write("ZERO")
         time.sleep(5)
-        s=self.ctrl.read()        
+        s=self.ctrl.read()
         if (s==':Z'):
             print('Zero OK')
-        
+
     def getChamp(self):
         """ Mesure des troix axes"""
         s=(self.ctrl.ask("D3"))

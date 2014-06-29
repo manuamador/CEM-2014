@@ -1,9 +1,9 @@
 
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 02 07:56:07 2012
+
 Pilotage chambre anéchoique, mesures de champ et puissance
-@author: emmanuel.amador@edf.fr
+
 """
 
 from __future__ import division
@@ -45,7 +45,7 @@ Nf=41 #nombre de fréquence
 f=linspace(f0,f1,Nf) #liste des fréquences testées
 
 
-#Positions testées######################################  
+#Positions testées######################################
 N=30 # nombre de positions du mat
 
 Angles=loadtxt('Angles2-4.txt') #angles tirés aléatoirement
@@ -91,8 +91,8 @@ print '_______\nMesures\n'
 ################# Mesure ######################
 ###############################################
 
-Champconsigne=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance injectée 
-PuissanceB=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance dans la chambre 
+Champconsigne=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance injectée
+PuissanceB=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance dans la chambre
 Champ=zeros((len(Angles),len(f),len(E),3)) #Mesure de champ dans la chambre
 
 for i in range(0,len(Angles)): #boucle sur les positions du mat

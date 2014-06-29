@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 02 07:56:07 2012
 Pilotage CA, pour réaliser un étalonnage
-@author: Emmanuel Amador emmanuel.amador@edf.fr
+
 """
 
 from __future__ import division
@@ -12,7 +11,7 @@ import visa
 import os
 
 #Chargement des classes du matériel employé
-#from Brasseur import * #classe du brasseur de la CRBM... 
+#from Brasseur import * #classe du brasseur de la CRBM...
 from Sondedechamp import * #classe générique des sondes de champ contiendra tous les modèles
 from Generateur import * #classe générique des générateurs contiendra tous les modèles
 from Wattmetre import *   #classe générique des wattmètres contiendra tous les modèles
@@ -38,7 +37,7 @@ f1=2000e6 #dernière fréquence
 Nf=61 #nombre de fréquence
 f=linspace(f0,f1,Nf) #liste des fréquences testées
 
-P=0 #PNiveau injecté testé en dBm 
+P=0 #PNiveau injecté testé en dBm
 
 print '_______________\nInitialisations\n'
 ###############################################
@@ -67,8 +66,8 @@ print '_______\nMesures\n'
 ###############################################
 ################# Mesure ######################
 ###############################################
-Puissance=zeros(len(f)) #Matrice de la mesure de la puissance dans la chambre 
-Champ=zeros((len(f),3)) #Matrice de la mesure de champ dans la chambre 
+Puissance=zeros(len(f)) #Matrice de la mesure de la puissance dans la chambre
+Champ=zeros((len(f),3)) #Matrice de la mesure de champ dans la chambre
 
 
 Mesure=zeros((1,6))
@@ -85,7 +84,7 @@ for j in range(0,len(f)):
         %(f[j]/1e6,Champ[j,0],Champ[j,1],Champ[j,2],sqrt(sum(Champ[j,:]**2)))
     gene.arret()
 # Sauvegarde des mesures à chaque pas du mat #
-fname = nom + '_alpha.txt' 
+fname = nom + '_alpha.txt'
 #Format du fichier:
 print 'Sauvegarde des mesures...'
 savetxt(fname,Mesure[1:,:])
@@ -106,4 +105,3 @@ os.chdir('..')
 alphaz=Champ[:,2]/sqrt(10**(P/10)/1000)
 
 savetxt('alpha.txt',alphaz)
-

@@ -1,9 +1,9 @@
 
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 02 07:56:07 2012
+
 Pilotage CRBM, mesures de champ et puissance
-@author: emmanuel.amador@edf.fr
+
 """
 
 from __future__ import division
@@ -47,7 +47,7 @@ f1=2000e6 #dernière fréquence
 Nf=61 #nombre de fréquence
 f=linspace(f0,f1,Nf) #liste des fréquences testées
 
-#Brasseur######################################  
+#Brasseur######################################
 N=50 # nombre de positions du mat
 Angles=linspace(360/N,360,N) #liste des positions en degré
 
@@ -96,9 +96,9 @@ print '_______\nMesures\n'
 ################# Mesure ######################
 ###############################################
 
-Champconsigne=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance injectée 
-PuissanceB=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance dans la chambre 
-Champ=zeros((len(Angles),len(f),len(E),3)) #Mesure de champ dans la chambre 
+Champconsigne=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance injectée
+PuissanceB=zeros((len(Angles),len(f),len(E))) #Mesure de la puissance dans la chambre
+Champ=zeros((len(Angles),len(f),len(E),3)) #Mesure de champ dans la chambre
 
 gene.setFreq(f0)
 gene.setPower(-30)

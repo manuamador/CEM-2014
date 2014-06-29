@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 02 07:56:07 2012
+
 Pilotage CRBM, mesures de champ et puissance
-@author: Emmanuel Amador emmanuel.amador@edf.fr
+
 """
 
 from __future__ import division
@@ -43,7 +43,7 @@ f1=2000e6 #dernière fréquence
 Nf=61 #nombre de fréquence
 f=linspace(f0,f1,Nf) #liste des fréquences testées
 
-#Brasseur######################################  
+#Brasseur######################################
 N=150 # nombre de positions du brasseur
 Angles=linspace(360/N,360,N) #liste des positions en degré
 
@@ -84,8 +84,8 @@ print '_______\nMesures\n'
 ###############################################
 ################# Mesure ######################
 ###############################################
-Puissance=zeros((len(Angles),len(f))) #Matrice de la mesure de la puissance dans la chambre 
-Champ=zeros((len(Angles),len(f),3)) #Matrice de la mesure de champ dans la chambre 
+Puissance=zeros((len(Angles),len(f))) #Matrice de la mesure de la puissance dans la chambre
+Champ=zeros((len(Angles),len(f),3)) #Matrice de la mesure de champ dans la chambre
 
 gene.setFreq(f0)
 gene.setPower(-30)
@@ -128,5 +128,3 @@ alphaz=mean(Champ[:,:,2],axis=0)/sqrt(10**(P/10)/1000)
 
 alpha=vstack((alphax,alphay,alphaz)).mean(axis=0)
 savetxt('alpha0.8-2_CRBM.txt',alpha)
-
-

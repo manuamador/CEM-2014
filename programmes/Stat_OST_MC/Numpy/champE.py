@@ -1,24 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Created on Thu Aug 08 08:01:34 2013
+
 
 Ensemble de fonctions pour calculer un champ électrique créé par un ensemble
 de dipôles de Hertz
 
-@author: emmanuel.amador@edf.fr
 """
 from __future__ import division
 from numpy import *
 
 c = 299792458.0
-  
+
 
 def champE(x,y,z,I,f):
     """
     Cette fonction calcule le champ électrique créé par un ensemble de dipôles
     Paramètres:
-    - x,y,z, vecteurs des coordonnées cartésiennes des points où le champ E est calculé 
+    - x,y,z, vecteurs des coordonnées cartésiennes des points où le champ E est calculé
     - I matrice des dipôles (x|y|z|tilt|azimut|amplitude|phase)
     - f tableau des fréquences
     """
@@ -64,7 +63,7 @@ def champE(x,y,z,I,f):
         Ez = sum(exp(1j*phase)*L*tile((((cb*sa)\
             *(-sintheta*costheta*cosphi)+(sb*sa)\
             *(-sintheta*costheta*sinphi)\
-            +ca*(-sintheta*(-sintheta)))),(len(f),1)),axis=1)           
+            +ca*(-sintheta*(-sintheta)))),(len(f),1)),axis=1)
     return Ex,Ey,Ez
 
 
@@ -118,7 +117,7 @@ def champElointain(R,theta,phi,I,f):
         Ezz = sum(exp(1j*phase)*L*tile((((cb*sa)\
             *(-sintheta*costheta*cosphi)+(sb*sa)\
             *(-sintheta*costheta*sinphi)\
-            +ca*(-sintheta*(-sintheta)))),(len(f),1)),axis=1)           
+            +ca*(-sintheta*(-sintheta)))),(len(f),1)),axis=1)
         Eth[i,:]= real(Exx*cos(theta[i])*cos(phi[i])\
             +Eyy*cos(theta[i])*sin(phi[i])-Ezz*sin(theta[i]))
         Eph[i,:]= real(-Exx*sin(phi[i])+Eyy*cos(phi[i]))
